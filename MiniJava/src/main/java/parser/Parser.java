@@ -10,7 +10,7 @@ import java.util.Stack;
 import Log.Log;
 import codeGenerator.CodeGenerator;
 import errorHandler.ErrorHandler;
-import scanner.lexicalAnalyzer;
+import scanner.LexicalAnalyzer;
 import scanner.token.Token;
 
 
@@ -18,7 +18,7 @@ public class Parser {
   private ArrayList<Rule> rules;
   private Stack<Integer> parsStack;
   private ParseTable parseTable;
-  private lexicalAnalyzer lexicalAnalyzer;
+  private LexicalAnalyzer lexicalAnalyzer;
   private CodeGenerator cg;
 
   public Parser() {
@@ -41,7 +41,7 @@ public class Parser {
   }
 
   public void startParse(java.util.Scanner sc) {
-    lexicalAnalyzer = new lexicalAnalyzer(sc);
+    lexicalAnalyzer = new LexicalAnalyzer(sc);
     Token lookAhead = lexicalAnalyzer.getNextToken();
     boolean finish = false;
     Action currentAction;
@@ -94,7 +94,7 @@ public class Parser {
 //                        tokenFollow.append(String.format("|(?<%s>%s)", t.name(), t.pattern));
 //                        Matcher matcher = Pattern.compile(tokenFollow.substring(1)).matcher(lookAhead.toString());
 //                        while (!matcher.find()) {
-//                            lookAhead = lexicalAnalyzer.getNextToken();
+//                            lookAhead = LexicalAnalyzer.getNextToken();
 //                        }
 //                    }
 //                }
