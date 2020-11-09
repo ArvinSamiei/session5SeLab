@@ -78,7 +78,7 @@ public class CodeGenerator {
                 _while();
                 break;
             case 16:
-                jpf_save();
+                jpfSave();
                 break;
             case 17:
                 jpHere();
@@ -349,7 +349,7 @@ public class CodeGenerator {
         memory.add3AddressCode(Operation.JP, ss.pop(), null, null);
     }
 
-    public void jpf_save() {
+    public void jpfSave() {
         Address save = new Address(memory.saveMemory(), VarType.Address);
         memory.add3AddressCode(ss.pop().num, Operation.JPF, ss.pop(), new Address(memory.getCurrentCodeBlockAddress(), VarType.Address), null);
         ss.push(save);
