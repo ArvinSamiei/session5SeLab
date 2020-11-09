@@ -4,9 +4,21 @@ package errorHandler;
  * Created by Alireza on 6/28/2015.
  */
 public class ErrorHandler {
-    public static boolean hasError = false;
+    private boolean hasError = false;
+    private static ErrorHandler errorHandler = new ErrorHandler();
 
-    public static void printError(String msg) {
+    private ErrorHandler() {
+    }
+
+    public boolean getHasError() {
+        return hasError;
+    }
+
+    public static ErrorHandler getInstance() {
+        return errorHandler;
+    }
+
+    public void printError(String msg) {
         hasError = true;
         System.out.println(msg);
     }
