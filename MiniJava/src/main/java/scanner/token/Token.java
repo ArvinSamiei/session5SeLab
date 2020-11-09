@@ -6,12 +6,20 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class Token {
-    public Type type;
-    public String value;
+    private Type type;
+    private String value;
 
     public Token(Type type, String value) {
         this.type = type;
         this.value = value;
+    }
+
+    public Type getType() {
+        return type;
+    }
+
+    public String getValue() {
+        return value;
     }
 
     @Override
