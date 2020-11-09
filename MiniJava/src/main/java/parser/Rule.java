@@ -3,11 +3,16 @@ package parser;
 import scanner.token.Token;
 
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by mohammad hosein on 6/25/2015.
  */
 public class Rule {
+    public NonTerminal LHS;
+    public List<GrammarSymbol> RHS;
+    public int semanticAction;
+
     public Rule(String stringRule) {
         int index = stringRule.indexOf("#");
         if (index != -1) {
@@ -43,9 +48,7 @@ public class Rule {
             }
         }
     }
-    public NonTerminal LHS;
-    public ArrayList<GrammarSymbol> RHS;
-    public int semanticAction;
+
 }
 
 class GrammarSymbol{
